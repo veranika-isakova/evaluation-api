@@ -1,5 +1,6 @@
 const classes = require('./classes')
+const users = require('./users')
 
 module.exports = {
-  classes,
+  classes, users
 }

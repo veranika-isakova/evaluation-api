@@ -10,20 +10,22 @@ router.get('/classes', (req, res, next) => {
     // Throw a 500 error if something goes wrong
     .catch((error) => next(error))
   })
+
   .get('/classes/:id', (req, res, next) => {
-    const id = req.params.id
-    Class.findById(id)
-      .then((class) => {
-        if (!class) { return next() }
-        res.json(class)
-      })
-      .catch((error) => next(error))
-  })
+      const id = req.params.id
+      Class.findById(id)
+        .then((result) => {
+          if (!result) { return next() }
+          res.json(result)
+        })
+        .catch((error) => next(error))
+    })
+
   .post('/classes', (req, res, next) => {
     let newClass = req.body
 
     Class.create(newCLass)
-      .then((class) => res.json(class))
+      .then((result) => res.json(result))
       .catch((error) => next(error))
   })
 

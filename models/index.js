@@ -1,5 +1,6 @@
 const Class = require('./class')
+const User = require('./user')
 
 module.exports = {
-  Class
+  Class, User
 }

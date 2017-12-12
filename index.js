@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { classes } = require('./routes')
+const { classes, users } = require('./routes')
 
 const port = process.env.PORT || 3030
 
@@ -11,7 +11,7 @@ app
   .use(bodyParser.json())
 
   // Our classes routes
-  .use(classes)
+  .use(classes, users)
 
   // catch 404 and forward to error handler
   .use((req, res, next) => {
