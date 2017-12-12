@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const { batch } = require('../models')
+const { Batch } = require('../models')
 
 router.get('/batches', (req, res, next) => {
-  batch.find()
+  Batch.find()
     // Newest batches first
     .sort({ createdAt: -1 })
     // Send the data in JSON format
@@ -13,7 +13,7 @@ router.get('/batches', (req, res, next) => {
 
   .get('/batches/:id', (req, res, next) => {
       const id = req.params.id
-      batch.findById(id)
+      Batch.findById(id)
         .then((result) => {
           if (!result) { return next() }
           res.json(result)
@@ -24,7 +24,7 @@ router.get('/batches', (req, res, next) => {
   .post('/batches', (req, res, next) => {
     let newbatch = req.body
 
-    batch.create(newbatch)
+    Batch.create(newbatch)
       .then((result) => res.json(result))
       .catch((error) => next(error))
   })

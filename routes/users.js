@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const { User } = require('../models')
+const _ = require('underscore');
+const passport = require('../config/auth');
 
 
 router.post('/users', (req, res, next) => {
@@ -16,5 +18,15 @@ router.post('/users', (req, res, next) => {
   })
 })
 
+router.get('/users/me', passport.authorize('jwt', { session: false }), (req, res, next) => {
+  // Once authorized, the user data should be in `req.account`!
+  if (!req.account) {
+    const error = new Error('Unauthorized')
+    error.status = 401
+    next(error)
+  }
+
+  res.json(req.account)
+})
 
 module.exports = router //for users!

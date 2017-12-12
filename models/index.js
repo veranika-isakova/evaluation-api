@@ -1,6 +1,6 @@
-const batch = require('./batch')
+const Batch = require('./batch')
 const User = require('./user')
 
 module.exports = {
-  batch, User
+  Batch, User
 }
