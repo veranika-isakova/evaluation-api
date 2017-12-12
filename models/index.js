@@ -1,6 +1,6 @@
-const Class = require('./class')
+const batch = require('./batch')
 const User = require('./user')
 
 module.exports = {
-  Class, User
+  batch, User
 }

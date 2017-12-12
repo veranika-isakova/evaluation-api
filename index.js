@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { classes, users } = require('./routes')
+const { batches, users } = require('./routes')
+const passport = require('./config/auth')
 
 const port = process.env.PORT || 3030
 
@@ -9,9 +10,10 @@ let app = express()
 app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
+  .use(passport.initialize())
 
-  // Our classes routes
-  .use(classes, users)
+  // Our batches routes
+  .use(batches, users)
 
   // catch 404 and forward to error handler
   .use((req, res, next) => {

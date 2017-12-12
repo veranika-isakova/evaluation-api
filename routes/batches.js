@@ -1,19 +1,19 @@
 const router = require('express').Router()
-const { Class } = require('../models')
+const { batch } = require('../models')
 
-router.get('/classes', (req, res, next) => {
-  Class.find()
-    // Newest classes first
+router.get('/batches', (req, res, next) => {
+  batch.find()
+    // Newest batches first
     .sort({ createdAt: -1 })
     // Send the data in JSON format
-    .then((classes) => res.json(classes))
+    .then((batches) => res.json(batches))
     // Throw a 500 error if something goes wrong
     .catch((error) => next(error))
   })
 
-  .get('/classes/:id', (req, res, next) => {
+  .get('/batches/:id', (req, res, next) => {
       const id = req.params.id
-      Class.findById(id)
+      batch.findById(id)
         .then((result) => {
           if (!result) { return next() }
           res.json(result)
@@ -21,10 +21,10 @@ router.get('/classes', (req, res, next) => {
         .catch((error) => next(error))
     })
 
-  .post('/classes', (req, res, next) => {
-    let newClass = req.body
+  .post('/batches', (req, res, next) => {
+    let newbatch = req.body
 
-    Class.create(newCLass)
+    batch.create(newbatch)
       .then((result) => res.json(result))
       .catch((error) => next(error))
   })

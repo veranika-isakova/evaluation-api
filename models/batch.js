@@ -13,11 +13,11 @@ const studentSchema = new Schema({
   evaluations: [elaluationSchema]
 })
 
-const classSchema = new Schema({
+const batchSchema = new Schema({
   batch: { type: Number, required: true },
   students: [studentSchema],
   startDate: { type: Date, default: Date.now },
   endDate: { type: Date, default: Date.now }
 })
 
-module.exports = mongoose.model('classes', classSchema)
+module.exports = mongoose.model('batches', batchSchema)

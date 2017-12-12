@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
 // Connect to MongoDB
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/classes'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/batches'
 mongoose.set('debug', true)
 mongoose.connect(MONGODB_URI, { useMongoClient: true })
 
