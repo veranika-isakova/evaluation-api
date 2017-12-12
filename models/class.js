@@ -3,7 +3,8 @@ const { Schema } = mongoose
 
 const elaluationSchema = new Schema({
   color: { type: String, required: true },
-  evaluationDate: { type: Date, default: Date.now }
+  evaluationDate: { type: Date, default: Date.now },
+  remark: { type: String, required: false }
 })
 
 const studentSchema = new Schema({

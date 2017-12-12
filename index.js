@@ -1,20 +1,34 @@
 const express = require('express')
-const { Class } = require('./models') // this works because of the index file!
+const bodyParser = require('body-parser')
+const { classes } = require('./routes')
 
-const PORT = process.env.PORT || 3030
+const port = process.env.PORT || 3030
 
 let app = express()
 
-app.get('/classes', (req, res, next) => {
-  Class.find()
-    // Newest classes first
-    .sort({ createdAt: -1 })
-    // Send the data in JSON format
-    .then((classes) => res.json(classes))
-    // Forward any errors to error handler
-    .catch((error) => next(error))
-})
+app
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.json())
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`)
-})
+  // Our classes routes
+  .use(classes)
+
+  // catch 404 and forward to error handler
+  .use((req, res, next) => {
+    const err = new Error('Not Found')
+    err.status = 404
+    next(err)
+  })
+
+  // final error handler
+  .use((err, req, res, next) => {
+    res.status(err.status || 500)
+    res.send({
+      message: err.message,
+      error: app.get('env') === 'development' ? err : {}
+    })
+  })
+
+  .listen(port, () => {
+    console.log(`Server is listening on port ${port}`)
+  })
