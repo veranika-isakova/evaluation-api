@@ -1,0 +1,60 @@
+  [
+    {
+      "title": "Class 1",
+      "startDate": "2017-10-13",
+      "endDate": "2017-11-13",
+      "students": [
+        {
+          "name": "Rita Sokol",
+          "photo": "http://bit.ly/2z7hPpM",
+          "evaluations:": [
+            {
+              "color": "green",
+              "evaluationDate": "2017-10-13",
+              "remark": "bla"
+            }
+          ]
+        },
+        {
+          "name": "Ann Angel ",
+          "photo": "http://bit.ly/2AgWmsA",
+          "evaluations": [
+            {
+              "color": "yellow",
+              "evaluationDate": "2017-10-14",
+              "remark": "blabla"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Class 2",
+      "startDate": "2017-11-13",
+      "endDate": "2017-12-13",
+      "students": [
+        {
+          "name": "Pavel Grozberg",
+          "photo": "http://bit.ly/2C28k9T",
+          "evaluations:": [
+            {
+              "color": "red",
+              "evaluationDate": "2017-10-15",
+              "remark": "blablabla"
+            }
+          ]
+        },
+        {
+          "name": "Elena Sun",
+          "photo": "http://bit.ly/2Ahnc3G",
+          "evaluations": [
+            {
+              "color": "red",
+              "evaluationDate": "2017-10-16",
+              "remark": "blablabla"
+            }
+          ]
+        }
+      ]
+    }
+  ]

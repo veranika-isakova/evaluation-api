@@ -14,10 +14,10 @@ const studentSchema = new Schema({
 })
 
 const batchSchema = new Schema({
-  batch: { type: Number, required: true },
+  title: { type: String, required: true },
   students: [studentSchema],
-  startDate: { type: Date, default: Date.now },
-  endDate: { type: Date, default: Date.now }
+  startDate: { type: Date, required: true },
+  endDate: { type: Date, required: true }
 })
 
 module.exports = mongoose.model('batches', batchSchema)
