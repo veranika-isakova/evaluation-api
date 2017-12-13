@@ -9,7 +9,7 @@ const elaluationSchema = new Schema({
 
 const studentSchema = new Schema({
   name: { type: String, required: true },
-  photo: { type: String, default: 'http://bit.ly/2C7NU0e' },
+  photo: { type: String, default: 'http://bit.ly/2CccBZl' },
   evaluations: [elaluationSchema]
 })
 

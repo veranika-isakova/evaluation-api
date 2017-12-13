@@ -1,6 +1,10 @@
 const router = require('express').Router()
-const { Batch } = require('../models')
+const { Batch, User } = require('../models')
+const passport = require("../config/auth");
 
+const authenticate = passport.authorize("jwt", { session: false });
+
+//router.get('/batches', authenticate, (req, res, next) => {
 router.get('/batches', (req, res, next) => {
   Batch.find()
     // Newest batches first
