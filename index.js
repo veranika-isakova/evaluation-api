@@ -1,8 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const { batches, users, sessions } = require('./routes')
-const { Batch, User } = require('./models')
+const { batches, users, sessions, students } = require('./routes')
+const { Batch, User, Student } = require('./models')
 const port = process.env.PORT || 3030
 const passport = require('./config/auth')
 
@@ -13,8 +13,8 @@ let app = express()
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(passport.initialize())
-  // Our recipes routes
-  .use(batches, users, sessions) // for users!
+  // Our routes
+  .use(batches, users, sessions, students) // for users!
   // catch 404 and forward to error handler, actuall error
   .use((req, res, next) => {
     const err = new Error('Not Found')

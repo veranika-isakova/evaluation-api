@@ -1,6 +1,5 @@
 const mongoose = require('../config/database')
 const { Schema } = mongoose
-const { Student } = require('./student')
 
 const elaluationSchema = new Schema({
   color: { type: String, required: true },
@@ -14,11 +13,5 @@ const studentSchema = new Schema({
   evaluations: [elaluationSchema]
 })
 
-const batchSchema = new Schema({
-  title: { type: String, required: true },
-  students: [studentSchema],
-  startDate: { type: Date, required: true },
-  endDate: { type: Date, required: true }
-})
 
-module.exports = mongoose.model('batches', batchSchema)
+module.exports = mongoose.model('students', studentSchema)
