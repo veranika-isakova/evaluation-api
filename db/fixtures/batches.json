@@ -7,7 +7,7 @@
         {
           "name": "Rita Sokol",
           "photo": "http://bit.ly/2z7hPpM",
-          "evaluations:": [
+          "evaluations": [
             {
               "color": "green",
               "evaluationDate": "2017-10-13",
@@ -35,8 +35,8 @@
       "students": [
         {
           "name": "Pavel Grozberg",
-          
-          "evaluations:": [
+
+          "evaluations": [
             {
               "color": "red",
               "evaluationDate": "2017-10-15",
