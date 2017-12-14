@@ -33,4 +33,22 @@ router.get('/batches', (req, res, next) => {
       .catch((error) => next(error))
   })
 
+  .patch('/batches/:id', (req, res, next) => {
+    Batch.findById(req.params.id)
+      .then((result) => {
+        if (!result) { return next() }
+
+        let newStudent = req.body;
+        newStudent.evaluations = []
+        let newBatch = {...result} //copy of old batch
+        console.log(result)
+        newBatch.students = concat([newStudent]);
+
+        Batch.update({_id: req.params.id}, {...newBatch})
+          .then((updatedBatch) => res.json(updatedBatch))
+          .catch((error) => next(error))
+      })
+      .catch((error) => next(error))
+  })
+
 module.exports = router

@@ -32,12 +32,4 @@ router.get('/students', (req, res, next) => {
 .catch((error) => next(error))
 })
 
-.post('/students', (req, res, next) => {
-let newstudent = req.body
-
-Student.create(newstudent)
-.then((result) => res.json(result))
-.catch((error) => next(error))
-})
-
 module.exports = router
